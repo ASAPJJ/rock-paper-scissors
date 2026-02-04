@@ -24,6 +24,8 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
     console.log("EMPATE");
+    humanScore +=0
+    computerScore +=0
   } else if (
     (humanChoice == "PIEDRA" && computerChoice == "TIJERAS") ||
     (humanChoice == "PAPEL" && computerChoice == "PIEDRA") ||
@@ -37,7 +39,23 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+
+function playGame() {
+  while(humanScore < 5 && computerScore < 5){
+
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+
+  playRound(humanSelection, computerSelection);
+
+  console.log(`Humano : ${humanScore} | Computadora: ${computerScore}`)
+  }
+  if (humanScore === 5){
+    console.log("Ganaste!")
+  } else {
+    console.log("Gano la computadora!")
+  }
+}
+
+playGame()
